@@ -7,5 +7,9 @@ import (
 )
 
 func main() {
-	fmt.Println(message.ShowMessage("Golang"))
+	msg, _ := message.ShowMessage("Golang")
+	fmt.Println(msg)
+
+	_, error := message.ShowMessage("")
+	fmt.Println(error)
 }
