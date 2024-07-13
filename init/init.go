@@ -2,14 +2,21 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/message"
 )
 
 func main() {
-	msg, _ := message.ShowMessage("Golang")
-	fmt.Println(msg)
 
-	_, error := message.ShowMessage("")
-	fmt.Println(error)
+	log.SetPrefix("init: ")
+	log.SetFlags(0)
+
+	msg, err := message.ShowMessage("")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(msg)
 }
