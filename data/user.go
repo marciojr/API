@@ -7,13 +7,12 @@ type User struct {
 	Expenses []Expenses `json:"expenses"`
 }
 
-func GetUsers() []User {
+var Users = []User{
+	{ID: 1, Name: "John", Balance: 1000.00, Expenses: GetFirstExpense()},
+	{ID: 2, Name: "Megan", Balance: 5000.00, Expenses: GetSecondExpense()},
+	{ID: 3, Name: "Michael", Balance: 15000.00, Expenses: GetThirdExpense()},
+}
 
-	var users = []User{
-		{ID: 1, Name: "John", Balance: 1000.00, Expenses: GetFirstExpense()},
-		{ID: 2, Name: "Megan", Balance: 5000.00, Expenses: GetSecondExpense()},
-		{ID: 3, Name: "Michael", Balance: 15000.00, Expenses: GetThirdExpense()},
-	}
-
-	return users
+func AddUser(newUser User) {
+	Users = append(Users, newUser)
 }
